@@ -1,6 +1,7 @@
 ﻿using PolygonLibrary;
 using PolygonLibrary.Exceptions;
 using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using DU = App.DisplayUtility;
@@ -9,7 +10,7 @@ namespace App
 {
     internal class Program
     {
-        private static readonly string DefaultFilePath = "samplePolygon.txt";
+        private static readonly string DefaultFilePath = "regular_polygon.txt";
         private static readonly Vertex DefaultInitialVertex = new Vertex(0, 0);
 
         private static void Main(string[] args)
@@ -38,10 +39,10 @@ namespace App
         {
             if (args.Length != 3)
             {
-                throw new InputValidationException("You must provide 3 arguments to the program: number of vertices, side length, save option ('c' - console, 'f' - file 'polygon' in current directory).");
+                throw new InputValidationException("You must provide 3 arguments to the program: number of vertices, side length, output option.");
             }
 
-            if (!(int.TryParse(args[0], out int numberOfVertices) && double.TryParse(args[1], out double sideLength)))
+            if (!(int.TryParse(args[0], out int numberOfVertices) && double.TryParse(args[1], NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out double sideLength)))
             {
                 throw new InputValidationException("Something went wrong while parsing. Next time ensure that the parameters' format is correct.");
             }
@@ -49,7 +50,7 @@ namespace App
             char option = args[2].ToUpperInvariant().ToCharArray()[0];
             if (!new[] { 'C', 'F' }.Contains(option))
             {
-                throw new InputValidationException("Unknown save/display option.");
+                throw new InputValidationException("Unknown output option.");
             }
 
             return new AppParameters()
@@ -99,7 +100,7 @@ namespace App
             try
             {
                 File.WriteAllText(filePath, polygon.ToString());
-                DU.DisplayText("Successfully completed operation", DU.InformationType.OnSuccess);
+                DU.DisplayText($"Successfully completed operation. Regular polygon information saved to: {filePath}", DU.InformationType.OnSuccess);
             }
             catch (Exception e)
             {
