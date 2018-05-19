@@ -25,23 +25,24 @@ namespace PolygonLibraryTest
             int numberOfVertices = 3;
             RegularPolygon polygon = _factory.CreateRegularPolygon(numberOfVertices, _standardLength, _initiaVertex);
             Vertex[] vertices = polygon.Vertices;
-            Assert.AreEqual(new Vertex(0, 0), vertices[0]);
-            Assert.AreEqual(new Vertex(2, 0), vertices[1]);
-            Assert.AreEqual(new Vertex(1, 1.73), vertices[2]);
+            Assert.IsTrue(new Vertex(0, 0).Equals(vertices[0]));
+            Assert.IsTrue(new Vertex(2, 0).Equals(vertices[1]));
+            Assert.IsTrue(new Vertex(1, 1.73).Equals(vertices[2]));
         }
 
         [TestMethod]
         public void CreateRegularHexagonFromZeroZeroPoint()
         {
+
             int numberOfVertices = 6;
             RegularPolygon polygon = _factory.CreateRegularPolygon(numberOfVertices, _standardLength, _initiaVertex);
             Vertex[] vertices = polygon.Vertices;
-            Assert.AreEqual(new Vertex(0, 0), vertices[0]);
-            Assert.AreEqual(new Vertex(2, 0), vertices[1]);
-            Assert.AreEqual(new Vertex(3, 1.73), vertices[2]);
-            Assert.AreEqual(new Vertex(2, 3.46), vertices[3]);
-            Assert.AreEqual(new Vertex(0, 3.46), vertices[4]);
-            Assert.AreEqual(new Vertex(-1, 1.73), vertices[5]);
+            Assert.IsTrue(new Vertex(0, 0).Equals(vertices[0]));
+            Assert.IsTrue(new Vertex(2, 0).Equals(vertices[1]));
+            Assert.IsTrue(new Vertex(3, 1.73).Equals(vertices[2]));
+            Assert.IsTrue(new Vertex(2, 3.464).Equals(vertices[3]));
+            Assert.IsTrue(new Vertex(0, 3.46).Equals(vertices[4]));
+            Assert.IsTrue(new Vertex(-1, 1.73).Equals(vertices[5]));
         }
 
         [TestMethod]

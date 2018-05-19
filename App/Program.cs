@@ -18,14 +18,14 @@ namespace App
             {
                 AppParameters parameters = ExtractParametersFromInput(args);
                 ProcessInput(parameters);
-
-                DU.DisplayText("Press any key to close the program...");
+       
             }
             catch (InputValidationException e)
             {
                 DU.DisplayText(e.Message, DU.InformationType.OnError);
             }
 
+            DU.DisplayText("Press any key to close the program...");
             Console.ReadKey();
         }
 
@@ -41,7 +41,7 @@ namespace App
                 throw new InputValidationException("You must provide 3 arguments to the program: number of vertices, side length, save option ('c' - console, 'f' - file 'polygon' in current directory).");
             }
 
-            if (!(int.TryParse(args[0], out int numberOfVertices) && double.TryParse(args[0], out double sideLength)))
+            if (!(int.TryParse(args[0], out int numberOfVertices) && double.TryParse(args[1], out double sideLength)))
             {
                 throw new InputValidationException("Something went wrong while parsing. Next time ensure that the parameters' format is correct.");
             }
