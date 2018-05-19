@@ -4,11 +4,11 @@ Console application for recruitment task.
 ## Instruction
 Application must be provided with 3 arguments in that order:
 
-* number of vertices (integer value, it must be greater than 2)
+* ***number of vertices*** (integer value, it must be greater than 2)
   
-* side length (double value, it must be greater than 0; invariant culture, decimal point separator - ".")
+* ***side length*** (double value, it must be greater than 0; invariant culture, decimal point separator - ".")
   
-* output option (string value, accepts two options (case insensitive): 
+* ***output option*** (string value, accepts two options (case insensitive): 
    "C" - console display; or "F" - save in default file;)*
   
 (*) everything that starts with letters "c" or "f" will be accepted (e.i. "console", "FILESAVE")
