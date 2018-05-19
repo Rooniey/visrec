@@ -2,7 +2,6 @@
 
 namespace App
 {
-
     public static class DisplayUtility
     {
         public enum InformationType

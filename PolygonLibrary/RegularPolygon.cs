@@ -33,7 +33,6 @@ namespace PolygonLibrary
         /// </summary>
         public int NumberOfSides => _vertices.Length;
 
-
         /// <summary>
         /// If an array of vertices meets the requirements (at least 3 vertices, all sides are of equal length), constructs the regular polygon.
         /// </summary>

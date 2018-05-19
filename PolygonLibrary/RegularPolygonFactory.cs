@@ -8,7 +8,6 @@ namespace PolygonLibrary
     /// </summary>
     public class RegularPolygonFactory
     {
-
         /// <summary>
         /// Given the arguments, creates proper regular polygon, using the presented algorithm:
         ///     1. Add the initial vertex to the array of vertices and initialize current angle with 0 value.
